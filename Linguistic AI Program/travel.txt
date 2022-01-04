@@ -1,0 +1,250 @@
+Group Members:
+Sanveer Gill, 500953525, Section 5
+Devrajsinh Chudasama, 500975539, Section 7
+
+1)
+a. ?- flight(X, Y, toronto, Z), location(Z, canada).
+	X = ac901
+	Y = airCanada
+	Z = vancouver
+	Yes (0.00s cpu, solution 1, maybe more)
+
+b. ?- flight(Z, airCanada, Y, losAngeles), dtime(Z, Y, D), atime(Z, X, A), Hours is (A - D) // 100, Minutes is (60 - A mod 100 - D mod 100) mod 60.
+	Z = ac888
+	Y = toronto
+	D = 1300
+	X = losAngeles
+	A = 1800
+	Hours = 5
+	Minutes = 0
+	Yes (0.00s cpu, solution 1, maybe more)
+
+c. ?- dtime(X, chicago, Z), atime(X, toronto, Y), flight(X, unitedAirlines, chicago, toronto), DT is Z.
+	X = ua95
+	Z = 1215
+	Y = 1400
+	DT = 1215
+	Yes (0.00s cpu)
+
+d. ?- flight(X, Y, A, B), \+ location(A, uk), \+ A = montreal, location(B, uk).
+	X = ua90
+	Y = unitedAirlines
+	A = barcelona
+	B = london
+	Yes (0.00s cpu, solution 1, maybe more)
+
+e. ?- flight(Flight, airCanada, edmonton, Location2), location(Location2, canada).
+	Flight = ac987
+	Location2 = montreal
+	Yes (0.00s cpu)
+
+f. ?- flight(Flight, Airline, toronto, Location), \+ location(Location, canada), dtime(Flight, toronto, D), atime(Flight, Location, A), Hours is (A - D) // 100, Minutes is (60 - A mod 100 - D mod 100) mod 60.
+	Flight = ac000
+	Airline = airCanada
+	Location = shanghai
+	D = 100
+	A = 1330
+	Hours = 12
+	Minutes = 30
+	Yes (0.00s cpu, solution 1, maybe more)
+
+g. ?- flight(Flight, Airline, toronto, vancouver), flight(Flight2, Airline, vancouver, shanghai), dtime(Flight, toronto, D), atime(Flight, vancouver, A), dtime(Flight2, vancouver, D2), atime(Flight2, shanghai, A2), Hours is (A2 - D) // 100, Minutes is (60 - A2 mod 100 - D mod 100) mod 60.
+	Flight = ac901
+	Airline = airCanada
+	Flight2 = ac087
+	D = 800
+	A = 1600
+	D2 = 1700
+	A2 = 2000
+	Hours = 12
+	Minutes = 0
+	Yes (0.00s cpu, solution 1, maybe more)
+
+h. ?- flight(Flight, Airline, montreal, Z), location(Z, usa), dtime(Flight, montreal, D), atime(Flight, Z, A), D >= 600, D =< 900, A < 1600.
+	Flight = aa999
+	Airline = americanAirlines
+	Z = pittsburgh
+	D = 800
+	A = 1540
+	Yes (0.00s cpu)
+
+i. ?- flight(Flight, Airline, toronto, Location2), location(Location2, china), dtime(Flight, toronto, D), atime(Flight, Location2, A), Time is A - D, \+ (flight(Flight2, Airline2, toronto, Location3), location(Location3, china), \+ Flight = Flight2, dtime(Flight2, toronto, D2), atime(Flight2, Location3, A2), Time2 is A2 - D2, Time2 < Time).
+	Flight = ac001
+	Airline = airCanada
+	Location2 = beijing
+	D = 1845
+	A = 2400
+	Time = 555
+	Flight2 = Flight2
+	Airline2 = Airline2
+	Location3 = Location3
+	D2 = D2
+	A2 = A2
+	Time2 = Time2
+	Yes (0.00s cpu, solution 1, maybe more)
+
+j. ?- flight(Flight, Airline, Location1, Location2), location(Location1, canada), location(Location2, usa), dtime(Flight, Location1, D), D >= 500, D =< 900.
+	Flight = ua11
+	Airline = unitedAirlines
+	Location1 = vancouver
+	Location2 = ny
+	D = 510
+	Yes (0.00s cpu, solution 1, maybe more)
+
+k. ?- flight(Flight1, Airline1, toronto, Location1A), flight(Flight2, Airline2, toronto, Location2A), flight(Flight3, Airline3, toronto, Location3A), \+ Location1A = Location2A, \+ Location1A = Location3A, \+ Location2A = Location3A, location(Location1A, canada), location(Location2A, canada), location(Location3A, canada), dtime(Flight1, toronto, D1), dtime(Flight2, toronto, D2), dtime(Flight3, toronto, D3), D1 < 1200, D2 < 1200, D3 < 1200.
+	Flight1 = ac901
+	Airline1 = airCanada
+	Location1A = vancouver
+	Flight2 = ac906
+	Airline2 = airCanada
+	Location2A = calgary
+	Flight3 = ac907
+	Airline3 = airCanada
+	Location3A = edmonton
+	D1 = 800
+	D2 = 800
+	D3 = 1100
+	Yes (0.00s cpu, solution 1, maybe more)
+
+l. ?- flight(Flight1, Airline, L1, L2), flight(Flight2, Airline2, L3, L4), \+ L2 = L4, location(L1, canada), location(L3, canada), location(L2, china), location(L4, china), City1 = L1, City2 = L3.
+	Flight1 = ac087
+	Airline = airCanada
+	L1 = vancouver
+	L2 = shanghai
+	Flight2 = ac001
+	Airline2 = airCanada
+	L3 = toronto
+	L4 = beijing
+	City1 = vancouver
+	City2 = toronto
+	Yes (0.00s cpu, solution 1, maybe more)
+
+2)
+
+?- what([a, morning, flight, from, canada, to, an, american, city], F).
+F = ua11
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([an, afternoon, airCanada, flight, from, toronto, to, losAngeles], F).
+F = ac888
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([a, day, international, flight, to, a, city, in, uk], F).
+F = ac009
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([a, morning, domestic, flight, from, toronto, with, any, afternoon, arrival, time], F).
+F = ac901
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([a, unitedAirlines, international, flight, from, a, city, in, canada], F).
+F = ua11
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([any, international, afternoon, flight, between, a, city, in, canada, and, an, american, city], FN).
+FN = ua11
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([a, long, day, international, flight, from, toronto, to, uk, with, any, evening, arrival, time], F).
+F = ac009
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([the, shortest, flight, between, a, canadian, city, and, a, chinese, city], F).
+F = ac087
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([any, afternoon, arrival, time, of, a, day, domestic, flight, to, an, american, city], T).
+T = 1300
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([a, day, departure, time, of, a, domestic, flight, to, miami], T).
+T = 1000
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([the, shortest, flight, from, toronto, with, any, morning, departure, time, to, a, canadian, city], F).
+F = ac901
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([the, day, flight, from, edmonton, to, montreal], FN).
+FN = ac987
+Yes (0.00s cpu, solution 1, maybe more)
+
+
+
+4)
+
+?- what([an, afternoon, flight, from, usa, to, a, canadian, city], F).
+F = ua95
+Yes (0.00s cpu, solution 1, maybe more)
+
+
+?- what([a, day, americanAirlines, flight, from, ny, to, austin], F).
+F = aa300
+Yes (0.00s cpu, solution 1, maybe more)
+
+
+?- what([an, evening, domestic, flight, to, a, city, in, usa], F).
+F = ua65
+Yes (0.00s cpu, solution 1, maybe more)
+
+
+?- what([a, airCanada, international, flight, to, shanghai, from, a, city, in, canada], F).
+F = ac087
+Yes (0.00s cpu, solution 1, maybe more)
+
+
+?- what([any, domestic, flight, between, toronto, and, vancouver], FN).
+FN = ac901
+Yes (0.00s cpu, solution 1, maybe more)
+
+
+?- what([a, long, day, international, flight, from, a, city, in, canada, with, a, evening, arrival, time], F).
+F = ac009
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([the, long, international, flight, from, canada], F).
+F = ac009
+Yes (0.00s cpu, solution 1, maybe more)
+
+
+?- what([the, afternoon, flight, from, a, city, in, canada, to, usa], FN).
+FN = ac888
+Yes (0.00s cpu, solution 1, maybe more)
+
+
+?- what([the, international, morning, flight, between, a, city, in, canada, and, an, american, city], FN).
+FN = ua11
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([a, airCanada, flight, from, toronto], F).
+F = ac000
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- what([the, departure, time, of, a, flight, between, toronto, and, shanghai], T).
+T = 100
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q5 part 1:
+
+Didnt knnow how to implement, most likely had to change code of parser. A solution we thought of was to store a list
+of all generated results of 'who' and check if list is uniq. This approach didnt work so we are stuck on this question.
+
+Q5 part 2:
+
+?- what([a, flight, between, canada, and, usa], F).
+F = ua11
+Yes (0.00s cpu, solution 1, maybe more)
+
+
+?- what([a, flight, between, toronto, and, a, city, in, china], F).
+F = ac000
+Yes (0.00s cpu, solution 1, maybe more)
+
+
+?- what([a, time, between, morning, and, day], T).
+No (0.00s cpu)
+
+
+?- what([the, arrival, time, of, a, flight, between, vancouver, and, shanghai], T).
+T = 2000
+Yes (0.00s cpu, solution 1, maybe more)
